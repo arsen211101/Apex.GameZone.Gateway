@@ -25,7 +25,6 @@ namespace Apex.GameZone.Gateway.Controllers
         public async Task<IActionResult> GetById(int id)
         {
             var gameZone = await _gameZoneService.GetById(id);
-
             return Ok(_mapper.Map<GameZoneViewModel>(gameZone));
         }
 
@@ -33,7 +32,6 @@ namespace Apex.GameZone.Gateway.Controllers
         public async Task<IActionResult> GetAll()
         {
             var gameZones = await _gameZoneService.GetAll();
-
             return Ok(_mapper.Map<List<GameZoneViewModel>>(gameZones));
         }
 
