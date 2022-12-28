@@ -1,4 +1,7 @@
-﻿using Apex.GameZone.API.ViewModels.Product;
+﻿using Apex.GameZone.API.ViewModels;
+using Apex.GameZone.API.ViewModels.Product;
+using Apex.GameZone.API.ViewModels.Section;
+using Apex.GameZone.Core.Entities;
 using Apex.GameZone.Core.Services.GameZone;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -34,6 +37,25 @@ namespace Apex.GameZone.API.Controllers
             var products = await _sectionService.GetAll();
 
             return Ok(_mapper.Map<List<ProductViewModel>>(products));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateSection(SectionViewModel sectionViewModel)
+        {
+            var sections = await _sectionService.Add(_mapper.Map<SectionModel>(sectionViewModel));
+            return Ok(_mapper.Map<List<SectionViewModel>>(sections));
+        }
+
+        [HttpDelete]
+        public async Task DedleteSection(SectionViewModel sectionViewModel)
+        {
+           await _sectionService.Delete(_mapper.Map<SectionModel>(sectionViewModel));
+        }
+
+        [HttpPut]
+        public async Task UpdateSection(SectionViewModel sectionViewModel)
+        {
+             await _sectionService.Update(_mapper.Map<SectionModel>(sectionViewModel));
         }
     }
 }
