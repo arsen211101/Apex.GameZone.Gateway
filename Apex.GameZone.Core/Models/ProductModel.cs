@@ -9,8 +9,7 @@ namespace Apex.GameZone.Core.Entities
         public decimal Price { get; set; }
         public decimal GrossPrice { get; set;}
         public int Balance { get; set; }
-        public GameZoneModel GameZoneEntity { get; set; }
-
+        public int GameZoneId { get; set; }
         public ProductModel() { }
     }
 }
