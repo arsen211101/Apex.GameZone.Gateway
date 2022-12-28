@@ -25,6 +25,10 @@ namespace Apex.GameZone.Data.Repositories.Common
         {
             await _context.AddAsync(entity);
         }
+        public void Update(TEntity entity)
+        {
+             _context.Update(entity);
+        }
 
         public async Task AddRange(List<TEntity> entities)
         {

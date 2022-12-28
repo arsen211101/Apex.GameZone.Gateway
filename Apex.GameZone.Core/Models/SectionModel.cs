@@ -9,7 +9,7 @@ namespace Apex.GameZone.Core.Entities
         public DeviceTypes Type { get; set; }
         public decimal PricePerHour { get; set; }
         public bool IsVip { get; set; }
-        public GameZoneModel GameZoneEntity { get; set; }
+        public int GameZoneId { get; set; }
 
         public SectionModel() { }
     }

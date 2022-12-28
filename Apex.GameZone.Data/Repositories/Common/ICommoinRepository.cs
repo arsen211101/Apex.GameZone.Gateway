@@ -6,6 +6,7 @@ namespace Apex.GameZone.Data.Repositories.Common
 {
     public interface ICommonRepository<TEntity> where TEntity : BaseEntity
     {
+        void Update(TEntity entity);
         Task<List<TEntity>> GetAll(bool includeDeleted = false);
 
         Task<TEntity> GetById(int id, bool includeDeleted = false);

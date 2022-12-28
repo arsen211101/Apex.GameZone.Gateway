@@ -5,14 +5,18 @@ namespace Apex.GameZone.Data.Specifications.Common
     public class CommonSpecification<TEntity> : ICommonSpecification<TEntity>
     {
         #region Constructors
-            protected CommonSpecification(Expression<Func<TEntity, bool>> criteria)
-            {
-                Criteria = criteria;
-            }
+        protected CommonSpecification(Expression<Func<TEntity, bool>> criteria)
+        {
+            Criteria = criteria;
+        }
+        protected CommonSpecification()
+        {
+
+        }
         #endregion
 
         #region Properties
-            public Expression<Func<TEntity, bool>> Criteria { get; set; }
+        public Expression<Func<TEntity, bool>> Criteria { get; set; }
             public List<Expression<Func<TEntity, object>>> Includes { get; } = new List<Expression<Func<TEntity, object>>>();
             public List<string> IncludeStrings { get; } = new List<string>();
             public Expression<Func<TEntity, object>> OrderBy { get; private set; }

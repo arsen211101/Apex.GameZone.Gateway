@@ -26,24 +26,24 @@ namespace Apex.GameZone.API.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var product = await _sectionService.GetById(id);
+            var section = await _sectionService.GetById(id);
 
-            return Ok(_mapper.Map<ProductViewModel>(product));
+            return Ok(_mapper.Map<SectionViewModel>(section));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var products = await _sectionService.GetAll();
+            var sections = await _sectionService.GetAll();
 
-            return Ok(_mapper.Map<List<ProductViewModel>>(products));
+            return Ok(_mapper.Map<List<SectionViewModel>>(sections));
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateSection(SectionViewModel sectionViewModel)
         {
             var sections = await _sectionService.Add(_mapper.Map<SectionModel>(sectionViewModel));
-            return Ok(_mapper.Map<List<SectionViewModel>>(sections));
+            return Ok(sections);
         }
 
         [HttpDelete]

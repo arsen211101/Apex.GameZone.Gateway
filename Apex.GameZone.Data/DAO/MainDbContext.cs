@@ -9,7 +9,6 @@ namespace Apex.GameZone.Data.DAO
         public MainDbContext(DbContextOptions<MainDbContext> options) : base(options)
         {
         }
-
         public DbSet<GameZoneEntity> GameZones { get; set; }
         public DbSet<SectionEntity> Sections { get; set; }
         public DbSet<ItemEntity> Items { get; set; }

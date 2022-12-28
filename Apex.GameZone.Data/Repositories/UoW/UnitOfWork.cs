@@ -1,6 +1,8 @@
 ﻿using Apex.GameZone.Data.DAO;
 using Apex.GameZone.Data.Entities;
 using Apex.GameZone.Data.Repositories.Common;
+using Apex.GameZone.Shared.CustomExceptions;
+using Microsoft.EntityFrameworkCore;
 using System.Collections;
 
 namespace Apex.GameZone.Data.Repositories.UoW
@@ -43,13 +45,10 @@ namespace Apex.GameZone.Data.Repositories.UoW
 
         public async Task SaveChangesAsync()
         {
-            await _context.SaveChangesAsync();
-
-            // TODO
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
             //catch (DbUpdateConcurrencyException ex)
             //{
             //    throw new EntityUpdateConcurrencyException(ex.Entries);
@@ -58,6 +57,11 @@ namespace Apex.GameZone.Data.Repositories.UoW
             //{
             //    throw new BadDataException("Related entity not found.");
             //}
+            catch (Exception ex) 
+            { 
+                ex.ToString();
+            }
+          
         }
     }
 }

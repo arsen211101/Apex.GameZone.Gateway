@@ -1,6 +1,7 @@
 ﻿using Apex.GameZone.API.ViewModels;
 using Apex.GameZone.Core.Entities;
 using Apex.GameZone.Core.Services.GameZone;
+using Apex.GameZone.Data.Specifications.GameZoneSpecifications;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -24,7 +25,7 @@ namespace Apex.GameZone.Gateway.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var gameZone = await _gameZoneService.GetById(id);
+            var gameZone = await _gameZoneService.GetSingleBySpecification(new GetGameZoneSpecificationWithIncludes(id));
             return Ok(_mapper.Map<GameZoneViewModel>(gameZone));
         }
 

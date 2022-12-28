@@ -10,8 +10,8 @@ namespace Apex.GameZone.API.ViewModels.Section
         public DeviceTypes Type { get; set; }
         public decimal PricePerHour { get; set; }
         public bool IsVip { get; set; }
-        public GameZoneModel GameZoneModel { get; set; }
+        public int GameZoneId { get; set; }
 
-        public SectionViewModel() { }
+        public SectionViewModel() {  }
     }
 }

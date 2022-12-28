@@ -11,9 +11,11 @@ namespace Apex.GameZone.Data.Entities
 
         [Column(TypeName = "decimal(18,4)")]
         public decimal PricePerHour { get; set; }
+
         public bool IsVip { get; set; }
 
         public int GameZoneId { get; set; }
+
         [ForeignKey(nameof(GameZoneId))]
         public GameZoneEntity GameZoneEntity { get; set; }
 
