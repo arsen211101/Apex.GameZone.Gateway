@@ -1,11 +1,6 @@
-﻿using Apex.GameZone.API.ViewModels;
-using Apex.GameZone.API.ViewModels.Item;
-using Apex.GameZone.API.ViewModels.Product;
+﻿using Apex.GameZone.API.ViewModels.Item;
 using Apex.GameZone.Core.Entities;
-using Apex.GameZone.Core.Services.GameZone;
 using Apex.GameZone.Core.Services.Item;
-using Apex.GameZone.Data.Entities;
-using Apex.GameZone.Data.Specifications.GameZoneSpecifications;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
@@ -29,22 +24,22 @@ namespace Apex.GameZone.Gateway.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var product = await _itemService.GetById(id);
-            return Ok(_mapper.Map<ProductViewModel>(product));
+            var item = await _itemService.GetById(id);
+            return Ok(_mapper.Map<ItemViewModel>(item));
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
-            var products = await _itemService.GetAll();
-            return Ok(_mapper.Map<List<ProductViewModel>>(products));
+            var items = await _itemService.GetAll();
+            return Ok(_mapper.Map<List<ItemViewModel>>(items));
         }
 
         [HttpPost]
         public async Task<IActionResult> CreateProduct(ItemViewModel itemViewModel)
         {
-            var products = await _itemService.Add(_mapper.Map<ItemModel>(itemViewModel));
-            return Ok(products);
+            var items = await _itemService.Add(_mapper.Map<ItemModel>(itemViewModel));
+            return Ok(items);
         }
 
         [HttpDelete]

@@ -8,8 +8,6 @@ namespace Apex.GameZone.Core.Entities
         public string Description { get; set; }
         public decimal PricePerHour { get; set; }
         public int GameZoneId { get; set; }
-        [ForeignKey(nameof(GameZoneId))]
-        public GameZoneModel GameZoneEntity { get; set; }
         public ItemModel() { }
     }
 }
