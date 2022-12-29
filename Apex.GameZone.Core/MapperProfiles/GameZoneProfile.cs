@@ -1,4 +1,4 @@
-﻿using Apex.GameZone.Core.Entities;
+﻿using Apex.GameZone.Core.Models;
 using Apex.GameZone.Data.Entities;
 using AutoMapper;
 
@@ -10,6 +10,8 @@ namespace Apex.GameZone.Core.MapperProfiles
         {
             CreateMap<GameZoneEntity, GameZoneModel>();
             CreateMap<GameZoneModel, GameZoneEntity>();
+            CreateMap<GameZoneEntity, GameZoneEntity>();
+
         }
     }
 }

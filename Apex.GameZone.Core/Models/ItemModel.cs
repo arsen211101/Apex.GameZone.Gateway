@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Apex.GameZone.Core.Entities
+﻿namespace Apex.GameZone.Core.Models
 {
     public class ItemModel : BaseModel
     {

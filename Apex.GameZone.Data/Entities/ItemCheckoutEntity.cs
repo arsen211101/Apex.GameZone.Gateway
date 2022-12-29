@@ -13,6 +13,7 @@ namespace Apex.GameZone.Data.Entities
         public ItemEntity ItemEntity { get; set; }
 
         public DateTime Start { get; set; }
+
         public DateTime End { get; set; }
 
         [Column(TypeName = "decimal(18,4)")]

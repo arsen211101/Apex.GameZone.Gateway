@@ -1,4 +1,4 @@
-﻿using Apex.GameZone.Core.Entities;
+﻿using Apex.GameZone.Core.Models;
 using Apex.GameZone.Data.Entities;
 using Apex.GameZone.Data.Specifications.Common;
 

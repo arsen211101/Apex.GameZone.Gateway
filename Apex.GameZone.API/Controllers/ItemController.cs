@@ -1,5 +1,5 @@
 ﻿using Apex.GameZone.API.ViewModels.Item;
-using Apex.GameZone.Core.Entities;
+using Apex.GameZone.Core.Models;
 using Apex.GameZone.Core.Services.Item;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Apex.GameZone.Gateway.Controllers
 {
-    [Route("api/v1/Item")]
+    [Route("api/v1/item")]
     [ApiController]
     public class ItemController : ControllerBase
     {
@@ -36,20 +36,20 @@ namespace Apex.GameZone.Gateway.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProduct(ItemViewModel itemViewModel)
+        public async Task<IActionResult> CreateItem(ItemViewModel itemViewModel)
         {
             var items = await _itemService.Add(_mapper.Map<ItemModel>(itemViewModel));
             return Ok(items);
         }
 
         [HttpDelete]
-        public async Task DeleteProduct(ItemViewModel itemViewModel)
+        public async Task DeleteItem(ItemViewModel itemViewModel)
         {
             await _itemService.Delete(_mapper.Map<ItemModel>(itemViewModel));
         }
-
+         
         [HttpPut]
-        public async Task UpdateProduct(ItemViewModel itemViewModel)
+        public async Task UpdateItem(ItemViewModel itemViewModel)
         {
             await _itemService.Update(_mapper.Map<ItemModel>(itemViewModel));
         }

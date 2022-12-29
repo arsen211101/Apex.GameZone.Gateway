@@ -1,5 +1,5 @@
 ﻿using Apex.GameZone.API.ViewModels;
-using Apex.GameZone.Core.Entities;
+using Apex.GameZone.Core.Models;
 using Apex.GameZone.Core.Services.GameZone;
 using Apex.GameZone.Data.Specifications.GameZoneSpecifications;
 using AutoMapper;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Apex.GameZone.Gateway.Controllers
 {
-    [Route("api/v1/Gamezone")]
+    [Route("api/v1/gamezone")]
     [ApiController]
     public class GamezoneController : ControllerBase
     {

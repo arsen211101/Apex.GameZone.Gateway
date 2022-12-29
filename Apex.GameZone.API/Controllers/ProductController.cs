@@ -1,5 +1,5 @@
 ﻿using Apex.GameZone.API.ViewModels.Product;
-using Apex.GameZone.Core.Entities;
+using Apex.GameZone.Core.Models;
 using Apex.GameZone.Core.Services.GameZone;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;

@@ -1,20 +1,16 @@
-﻿using Apex.GameZone.Core.Entities;
+﻿using Apex.GameZone.Core.Models;
 using Apex.GameZone.Data.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AutoMapper;
 
 namespace Apex.GameZone.Core.MapperProfiles
 {
-    public class ItemProfile
+    public class ItemProfile:Profile
     {
         public ItemProfile()
         {
-            CreateMap<GameZoneEntity, GameZoneModel>();
-            CreateMap<GameZoneModel, GameZoneEntity>();
+            CreateMap<ItemEntity, ItemModel>();
+            CreateMap<ItemModel, ItemEntity>();
+            CreateMap<ItemEntity, ItemEntity>();
         }
-       
     }
 }

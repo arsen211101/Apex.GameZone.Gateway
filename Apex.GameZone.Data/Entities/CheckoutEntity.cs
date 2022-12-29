@@ -13,8 +13,11 @@ namespace Apex.GameZone.Data.Entities
         public SectionEntity SectionEntity { get; set; }
 
         public DateTime Start { get; set; }
+
         public DateTime? ExpectedEnd { get; set; }
+
         public DateTime? End { get; set; }
+
         public int Bill { get; set; }
 
         public ICollection<ItemCheckoutEntity> ConnectedItems { get; set; }

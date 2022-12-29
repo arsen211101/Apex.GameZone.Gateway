@@ -1,4 +1,4 @@
-﻿using Apex.GameZone.Core.Entities;
+﻿using Apex.GameZone.Core.Models;
 using Apex.GameZone.Data.Entities;
 using Apex.GameZone.Data.Repositories.UoW;
 using Apex.GameZone.Data.Specifications.Common;
@@ -84,23 +84,6 @@ namespace Apex.GameZone.Core.Services.Common
 
             return _mapper.Map<TModel>(entity);
         }
-
-        //public async Task Update(TModel model)
-        //{
-        //    if (model == null)
-        //        throw BadRequest($"Model to be updated was null");
-
-        //    var entity = _mapper.Map<TEntity>(model);
-
-        //    if (entity.Id == default(int))
-        //        throw BadRequest("Model must have an Id for updating");
-
-        //    var existingEntity = await _uow.Repository<TEntity>().GetById(entity.Id, true);
-        //    EnsureExists(existingEntity, $"There's no record with id {entity.Id} to update");
-
-        //    existingEntity=_mapper.Map(entity, existingEntity);
-        //     await _uow.SaveChangesAsync();
-        //}
 
         public async Task Update(TModel model)
         {

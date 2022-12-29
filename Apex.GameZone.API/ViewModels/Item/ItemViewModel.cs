@@ -1,7 +1,4 @@
-﻿using Apex.GameZone.Core.Entities;
-using System.ComponentModel.DataAnnotations.Schema;
-
-namespace Apex.GameZone.API.ViewModels.Item
+﻿namespace Apex.GameZone.API.ViewModels.Item
 {
     public class ItemViewModel : CommonViewModel
     {

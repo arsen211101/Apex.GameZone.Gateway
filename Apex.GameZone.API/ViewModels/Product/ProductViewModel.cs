@@ -1,6 +1,4 @@
-﻿using Apex.GameZone.Core.Entities;
-
-namespace Apex.GameZone.API.ViewModels.Product
+﻿namespace Apex.GameZone.API.ViewModels.Product
 {
     public class ProductViewModel : CommonViewModel
     {
