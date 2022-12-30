@@ -10,7 +10,7 @@ namespace Apex.GameZone.Data.Entities
         public decimal PricePerHour { get; set; }
         public int GameZoneId { get; set; }
         [ForeignKey(nameof(GameZoneId))]
-        public GameZoneEntity GameZoneEntity { get; set; }
+        public int GameZoneId { get; set; }
         public ItemEntity() { }
     }
 }

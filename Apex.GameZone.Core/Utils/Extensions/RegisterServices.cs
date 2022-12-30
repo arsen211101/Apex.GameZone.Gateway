@@ -1,5 +1,6 @@
 ﻿using Apex.GameZone.Core.Services.Common;
 using Apex.GameZone.Core.Services.GameZone;
+using Apex.GameZone.Core.Services.Item;
 using Apex.GameZone.Data.Repositories.UoW;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -12,9 +13,10 @@ namespace Apex.GameZone.Core.Utils.Extensions
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             #region Services
-                services.AddScoped<IGameZoneService, GameZoneService>();
-                services.AddScoped<ISectionService, SectionService>();
-                services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IGameZoneService, GameZoneService>();
+            services.AddScoped<ISectionService, SectionService>();
+            services.AddScoped<IProductService, ProductService>();
+            services.AddScoped<IItemService, ItemService>();
             #endregion
         }
     }
