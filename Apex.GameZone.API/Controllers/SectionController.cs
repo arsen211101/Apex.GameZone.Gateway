@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Apex.GameZone.API.ViewModels.Section;
 using Apex.GameZone.Core.Models;
 using Apex.GameZone.Core.Services.GameZone;
+using Apex.GameZone.Data.Specifications.SectionSpecifications;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +26,6 @@ public class SectionController : ControllerBase
     public async Task<IActionResult> GetById(int id)
     {
         var section = await _sectionService.GetById(id);
-
         return Ok(_mapper.Map<SectionViewModel>(section));
     }
 
@@ -34,6 +34,13 @@ public class SectionController : ControllerBase
     {
         var sections = await _sectionService.GetAll();
 
+        return Ok(_mapper.Map<List<SectionViewModel>>(sections));
+    }
+
+    [HttpGet("/gamezone/{id}")]
+    public async Task<IActionResult> GetAllByGameZoneId(int id)
+    {
+        var sections = await _sectionService.GetSingleBySpecification(new GetSectionsByGameZoneIdSpecification(id));
         return Ok(_mapper.Map<List<SectionViewModel>>(sections));
     }
 

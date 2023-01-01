@@ -12,6 +12,7 @@ public class SectionEntity : BaseEntity
     [Column(TypeName = "decimal(18,4)")] public decimal PricePerHour { get; set; }
 
     public bool IsVip { get; set; }
+    public bool IsBusy { get; set; }
 
     public int GameZoneId { get; set; }
 
