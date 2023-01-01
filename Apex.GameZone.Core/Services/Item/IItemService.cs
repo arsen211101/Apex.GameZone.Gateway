@@ -2,9 +2,8 @@
 using Apex.GameZone.Core.Services.Common;
 using Apex.GameZone.Data.Entities;
 
-namespace Apex.GameZone.Core.Services.Item
+namespace Apex.GameZone.Core.Services.Item;
+
+public interface IItemService : ICommonService<ItemModel, ItemEntity>
 {
-    public interface IItemService : ICommonService<ItemModel, ItemEntity>
-    {
-    }
 }

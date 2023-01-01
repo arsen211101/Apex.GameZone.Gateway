@@ -2,51 +2,39 @@
 using Apex.GameZone.Data.Specifications.Common;
 using Microsoft.EntityFrameworkCore;
 
-namespace Apex.GameZone.Data.Specifications
+namespace Apex.GameZone.Data.Specifications;
+
+public class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
 {
-    public class SpecificationEvaluator<TEntity> where TEntity : BaseEntity
+    public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery,
+        ICommonSpecification<TEntity> specification)
     {
-        public static IQueryable<TEntity> GetQuery(IQueryable<TEntity> inputQuery, ICommonSpecification<TEntity> specification)
-        {
-            var query = inputQuery;
+        var query = inputQuery;
 
-            // modify the IQueryable using the specification's criteria expression
-            if (specification.Criteria != null)
-            {
-                query = query.Where(specification.Criteria);
-            }
+        // modify the IQueryable using the specification's criteria expression
+        if (specification.Criteria != null) query = query.Where(specification.Criteria);
 
-            // Includes all expression-based includes
-            query = specification.Includes.Aggregate(query,
-                                    (current, include) => current.Include(include));
+        // Includes all expression-based includes
+        query = specification.Includes.Aggregate(query,
+            (current, include) => current.Include(include));
 
-            // Include any string-based include statements
-            query = specification.IncludeStrings.Aggregate(query,
-                                    (current, include) => current.Include(include));
+        // Include any string-based include statements
+        query = specification.IncludeStrings.Aggregate(query,
+            (current, include) => current.Include(include));
 
-            // Apply ordering if expressions are set
-            if (specification.OrderBy != null)
-            {
-                query = query.OrderBy(specification.OrderBy);
-            }
-            else if (specification.OrderByDescending != null)
-            {
-                query = query.OrderByDescending(specification.OrderByDescending);
-            }
+        // Apply ordering if expressions are set
+        if (specification.OrderBy != null)
+            query = query.OrderBy(specification.OrderBy);
+        else if (specification.OrderByDescending != null)
+            query = query.OrderByDescending(specification.OrderByDescending);
 
-            if (specification.GroupBy != null)
-            {
-                query = query.GroupBy(specification.GroupBy).SelectMany(x => x);
-            }
+        if (specification.GroupBy != null) query = query.GroupBy(specification.GroupBy).SelectMany(x => x);
 
-            // Apply paging if enabled
-            if (specification.IsPagingEnabled)
-            {
-                query = query.Skip(specification.Skip)
-                             .Take(specification.Take);
-            }
+        // Apply paging if enabled
+        if (specification.IsPagingEnabled)
+            query = query.Skip(specification.Skip)
+                .Take(specification.Take);
 
-            return query;
-        }
+        return query;
     }
 }

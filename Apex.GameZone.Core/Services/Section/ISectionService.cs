@@ -2,9 +2,8 @@
 using Apex.GameZone.Core.Services.Common;
 using Apex.GameZone.Data.Entities;
 
-namespace Apex.GameZone.Core.Services.GameZone
+namespace Apex.GameZone.Core.Services.GameZone;
+
+public interface ISectionService : ICommonService<SectionModel, SectionEntity>
 {
-    public interface ISectionService : ICommonService<SectionModel, SectionEntity>
-    {
-    }
 }

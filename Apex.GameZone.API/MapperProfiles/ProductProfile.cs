@@ -2,14 +2,13 @@
 using Apex.GameZone.Core.Models;
 using AutoMapper;
 
-namespace Apex.GameZone.API.MapperProfiles
+namespace Apex.GameZone.API.MapperProfiles;
+
+public class ProductProfile : Profile
 {
-    public class ProductProfile : Profile
+    public ProductProfile()
     {
-        public ProductProfile()
-        {
-            CreateMap<ProductViewModel, ProductModel>();
-            CreateMap<ProductModel, ProductViewModel>();
-        }
+        CreateMap<ProductViewModel, ProductModel>();
+        CreateMap<ProductModel, ProductViewModel>();
     }
 }

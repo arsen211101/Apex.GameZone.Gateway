@@ -2,15 +2,14 @@
 using Apex.GameZone.Data.Entities;
 using AutoMapper;
 
-namespace Apex.GameZone.Core.MapperProfiles
+namespace Apex.GameZone.Core.MapperProfiles;
+
+public class ItemProfile : Profile
 {
-    public class ItemProfile:Profile
+    public ItemProfile()
     {
-        public ItemProfile()
-        {
-            CreateMap<ItemEntity, ItemModel>();
-            CreateMap<ItemModel, ItemEntity>();
-            CreateMap<ItemEntity, ItemEntity>();
-        }
+        CreateMap<ItemEntity, ItemModel>();
+        CreateMap<ItemModel, ItemEntity>();
+        CreateMap<ItemEntity, ItemEntity>();
     }
 }

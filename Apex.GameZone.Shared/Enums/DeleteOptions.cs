@@ -1,8 +1,7 @@
-﻿namespace Apex.GameZone.Shared.Enums
+﻿namespace Apex.GameZone.Shared.Enums;
+
+public enum DeleteOptions
 {
-    public enum DeleteOptions
-    {
-        Soft,
-        Hard
-    }
+    Soft,
+    Hard
 }

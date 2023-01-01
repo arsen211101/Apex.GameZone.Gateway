@@ -2,14 +2,13 @@
 using Apex.GameZone.Core.Models;
 using AutoMapper;
 
-namespace Apex.GameZone.API.MapperProfiles
+namespace Apex.GameZone.API.MapperProfiles;
+
+public class SectionProfile : Profile
 {
-    public class SectionProfile : Profile
+    public SectionProfile()
     {
-        public SectionProfile()
-        {
-            CreateMap<SectionViewModel, SectionModel>();
-            CreateMap<SectionModel, SectionViewModel>();
-        }
+        CreateMap<SectionViewModel, SectionModel>();
+        CreateMap<SectionModel, SectionViewModel>();
     }
 }

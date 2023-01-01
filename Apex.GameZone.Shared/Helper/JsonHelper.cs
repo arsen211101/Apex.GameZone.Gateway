@@ -1,40 +1,46 @@
-﻿namespace Apex.GameZone.Shared.Helper
+﻿using System.Reflection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+
+namespace Apex.GameZone.Shared.Helper;
+
+public static class JsonHelper
 {
-    public static class JsonHelper
+    private static readonly JsonSerializerSettings JsonSettings = new()
     {
-        public static TResponse JsonDeserializeToModel<TResponse>(string httpResult)
-        {
-            var httpResultNullReplaced = httpResult.Replace("\"NaN\"", "null").Replace("Infinity", "-1");
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<TResponse>(httpResultNullReplaced, JsonSettings);
-        }
+        NullValueHandling = NullValueHandling.Ignore,
+        MissingMemberHandling = MissingMemberHandling.Ignore,
+        DateFormatHandling = DateFormatHandling.IsoDateFormat,
+        DateFormatString = DateTimeFormats.IsoFormat,
+        DateTimeZoneHandling = DateTimeZoneHandling.Utc,
+        ContractResolver = new PrivateResolver(),
+        ConstructorHandling = ConstructorHandling.AllowNonPublicDefaultConstructor
+    };
 
-        public static string SerializeToJsonString<TRequest>(TRequest model)
-            => Newtonsoft.Json.JsonConvert.SerializeObject(model, JsonSettings);
+    public static TResponse JsonDeserializeToModel<TResponse>(string httpResult)
+    {
+        var httpResultNullReplaced = httpResult.Replace("\"NaN\"", "null").Replace("Infinity", "-1");
+        return JsonConvert.DeserializeObject<TResponse>(httpResultNullReplaced, JsonSettings);
+    }
 
-        private static readonly Newtonsoft.Json.JsonSerializerSettings JsonSettings = new Newtonsoft.Json.JsonSerializerSettings
-        {
-            NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore,
-            MissingMemberHandling = Newtonsoft.Json.MissingMemberHandling.Ignore,
-            DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat,
-            DateFormatString = DateTimeFormats.IsoFormat,
-            DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Utc,
-            ContractResolver = new PrivateResolver(),
-            ConstructorHandling = Newtonsoft.Json.ConstructorHandling.AllowNonPublicDefaultConstructor
-        };
+    public static string SerializeToJsonString<TRequest>(TRequest model)
+    {
+        return JsonConvert.SerializeObject(model, JsonSettings);
+    }
 
-        private class PrivateResolver : Newtonsoft.Json.Serialization.DefaultContractResolver
+    private class PrivateResolver : DefaultContractResolver
+    {
+        protected override JsonProperty CreateProperty(MemberInfo member, MemberSerialization memberSerialization)
         {
-            protected override Newtonsoft.Json.Serialization.JsonProperty CreateProperty(System.Reflection.MemberInfo member, Newtonsoft.Json.MemberSerialization memberSerialization)
+            var prop = base.CreateProperty(member, memberSerialization);
+            if (!prop.Writable)
             {
-                var prop = base.CreateProperty(member, memberSerialization);
-                if (!prop.Writable)
-                {
-                    var property = member as System.Reflection.PropertyInfo;
-                    var hasPrivateSetter = property?.GetSetMethod(true) != null;
-                    prop.Writable = hasPrivateSetter;
-                }
-                return prop;
+                var property = member as PropertyInfo;
+                var hasPrivateSetter = property?.GetSetMethod(true) != null;
+                prop.Writable = hasPrivateSetter;
             }
+
+            return prop;
         }
     }
 }

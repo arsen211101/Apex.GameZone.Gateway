@@ -4,13 +4,12 @@ using Apex.GameZone.Data.Entities;
 using Apex.GameZone.Data.Repositories.UoW;
 using AutoMapper;
 
-namespace Apex.GameZone.Core.Services.GameZone
+namespace Apex.GameZone.Core.Services.GameZone;
+
+internal class ProductService : CommonService<ProductModel, ProductEntity>, IProductService
 {
-    internal class ProductService : CommonService<ProductModel, ProductEntity>, IProductService
+    public ProductService(IUnitOfWork uow,
+        IMapper mapper) : base(uow, mapper)
     {
-        public ProductService(IUnitOfWork uow,
-                            IMapper mapper) : base(uow, mapper)
-        {
-        }
     }
 }

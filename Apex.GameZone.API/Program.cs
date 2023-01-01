@@ -1,3 +1,4 @@
+using System;
 using Apex.GameZone.API.Extensions;
 using Apex.GameZone.Core.Utils.Extensions;
 using Apex.GameZone.Data.DAO;
@@ -5,14 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<MainDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionStrings"]), ServiceLifetime.Transient);
+builder.Services.AddDbContext<MainDbContext>(opts => opts.UseSqlServer(builder.Configuration["ConnectionStrings"]),
+    ServiceLifetime.Transient);
 builder.Services.RegisterServices();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 

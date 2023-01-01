@@ -2,14 +2,13 @@
 using Apex.GameZone.Core.Models;
 using AutoMapper;
 
-namespace Apex.GameZone.API.MapperProfiles
+namespace Apex.GameZone.API.MapperProfiles;
+
+public class GameZoneProfile : Profile
 {
-    public class GameZoneProfile : Profile
+    public GameZoneProfile()
     {
-        public GameZoneProfile()
-        {
-            CreateMap<GameZoneViewModel, GameZoneModel>();
-            CreateMap<GameZoneModel, GameZoneViewModel>();
-        }
+        CreateMap<GameZoneViewModel, GameZoneModel>();
+        CreateMap<GameZoneModel, GameZoneViewModel>();
     }
 }

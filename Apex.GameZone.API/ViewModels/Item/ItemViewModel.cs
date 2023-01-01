@@ -1,11 +1,9 @@
-﻿namespace Apex.GameZone.API.ViewModels.Item
+﻿namespace Apex.GameZone.API.ViewModels.Item;
+
+public class ItemViewModel : CommonViewModel
 {
-    public class ItemViewModel : CommonViewModel
-    {
-        public string Name { get; set; }
-        public string Description { get; set; }
-        public decimal PricePerHour { get; set; }
-        public int GameZoneId { get; set; }
-        public ItemViewModel() { }
-    }
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public decimal PricePerHour { get; set; }
+    public int GameZoneId { get; set; }
 }
