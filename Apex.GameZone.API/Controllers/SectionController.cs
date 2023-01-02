@@ -33,14 +33,13 @@ public class SectionController : ControllerBase
     public async Task<IActionResult> GetAll()
     {
         var sections = await _sectionService.GetAll();
-
         return Ok(_mapper.Map<List<SectionViewModel>>(sections));
     }
 
-    [HttpGet("/gamezone/{id}")]
+    [HttpGet("gamezone/{id}")]
     public async Task<IActionResult> GetAllByGameZoneId(int id)
     {
-        var sections = await _sectionService.GetSingleBySpecification(new GetSectionsByGameZoneIdSpecification(id));
+        var sections = await _sectionService.GetAll(new GetSectionsByGameZoneIdSpecification(id));
         return Ok(_mapper.Map<List<SectionViewModel>>(sections));
     }
 

@@ -10,6 +10,7 @@ public class SectionProfile : Profile
     {
         CreateMap<SectionEntity, SectionModel>();
         CreateMap<SectionModel, SectionEntity>();
+
         CreateMap<SectionEntity, SectionEntity>();
     }
 }
