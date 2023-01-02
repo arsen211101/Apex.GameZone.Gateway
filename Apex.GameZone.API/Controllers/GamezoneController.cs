@@ -7,7 +7,7 @@ using Apex.GameZone.Data.Specifications.GameZoneSpecifications;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Apex.GameZone.Gateway.Controllers;
+namespace Apex.GameZone.API.Controllers;
 
 [Route("api/v1/gamezone")]
 [ApiController]

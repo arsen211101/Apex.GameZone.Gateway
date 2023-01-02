@@ -6,7 +6,7 @@ using Apex.GameZone.Core.Services.Item;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Apex.GameZone.Gateway.Controllers;
+namespace Apex.GameZone.API.Controllers;
 
 [Route("api/v1/item")]
 [ApiController]
