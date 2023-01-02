@@ -9,4 +9,3 @@ public class GetSectionsByGameZoneIdSpecification : CommonSpecification<SectionE
     {
     }
 }
-
