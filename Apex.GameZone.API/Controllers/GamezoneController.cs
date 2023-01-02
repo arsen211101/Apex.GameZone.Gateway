@@ -49,8 +49,9 @@ public class GamezoneController : ControllerBase
         await _gameZoneService.Delete(_mapper.Map<GameZoneModel>(gameZone));
     }
 
+    [HttpPut]
     public async Task UpdateGameZone(GameZoneViewModel gameZone)
     {
         await _gameZoneService.Update(_mapper.Map<GameZoneModel>(gameZone));
     }
-}
+} 
