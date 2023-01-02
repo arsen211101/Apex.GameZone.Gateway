@@ -6,5 +6,5 @@ public class ItemCheckoutModel
 
     public DateTime Start { get; set; }
     public DateTime End { get; set; }
-    public decimal Bill { get; set; }
+    public int Bill { get; set; }
 }

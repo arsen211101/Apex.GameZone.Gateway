@@ -4,6 +4,6 @@ public class ItemViewModel : CommonViewModel
 {
     public string Name { get; set; }
     public string Description { get; set; }
-    public decimal PricePerHour { get; set; }
+    public int PricePerHour { get; set; }
     public int GameZoneId { get; set; }
 }

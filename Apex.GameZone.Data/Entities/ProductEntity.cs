@@ -8,9 +8,9 @@ public class ProductEntity : BaseEntity
 
     public string Description { get; set; }
 
-    [Column(TypeName = "decimal(18,4)")] public decimal Price { get; set; }
+    public int Price { get; set; }
 
-    [Column(TypeName = "decimal(18,4)")] public decimal ActualPrice { get; set; }
+    public int ActualPrice { get; set; }
 
     public int Quantity { get; set; }
 

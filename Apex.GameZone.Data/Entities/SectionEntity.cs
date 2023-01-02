@@ -9,7 +9,7 @@ public class SectionEntity : BaseEntity
     public string Description { get; set; }
     public DeviceTypes Type { get; set; }
 
-    [Column(TypeName = "decimal(18,4)")] public decimal PricePerHour { get; set; }
+   public int PricePerHour { get; set; }
 
     public bool IsVip { get; set; }
     public bool IsBusy { get; set; }

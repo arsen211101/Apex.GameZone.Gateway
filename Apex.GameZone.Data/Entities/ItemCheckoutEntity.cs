@@ -16,5 +16,5 @@ public class ItemCheckoutEntity : BaseEntity
 
     public DateTime End { get; set; }
 
-    [Column(TypeName = "decimal(18,4)")] public decimal Bill { get; set; }
+    [Column(TypeName = "decimal(18,2)")] public decimal Bill { get; set; }
 }
