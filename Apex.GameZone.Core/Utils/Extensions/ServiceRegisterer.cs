@@ -1,4 +1,5 @@
-﻿using Apex.GameZone.Core.Services.GameZone;
+﻿using Apex.GameZone.Core.Services.Checkout;
+using Apex.GameZone.Core.Services.GameZone;
 using Apex.GameZone.Core.Services.Item;
 using Apex.GameZone.Data.Repositories.UoW;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ public static class ServiceRegisterer
         services.AddScoped<ISectionService, SectionService>();
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IItemService, ItemService>();
+        services.AddScoped<ICheckoutService, CheckoutService>();
 
         #endregion
     }

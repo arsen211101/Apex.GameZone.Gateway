@@ -54,4 +54,4 @@ public class GamezoneController : ControllerBase
     {
         await _gameZoneService.Update(_mapper.Map<GameZoneModel>(gameZone));
     }
-} 
+}

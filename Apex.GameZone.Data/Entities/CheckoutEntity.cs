@@ -5,7 +5,6 @@ namespace Apex.GameZone.Data.Entities;
 public class CheckoutEntity : BaseEntity
 {
     public int GameZoneId { get; set; }
-
     [ForeignKey(nameof(GameZoneId))] public GameZoneEntity GameZone { get; set; }
 
     public int SectionId { get; set; }
