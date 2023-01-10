@@ -1,9 +1,8 @@
 ﻿namespace Apex.GameZone.Core.Models;
 
-public class ItemCheckoutModel
+public class ItemCheckoutModel :BaseModel
 {
-    public CheckoutModel CheckoutEntity { get; set; }
-
+    public int CheckoutId { get; set; }
     public DateTime Start { get; set; }
     public DateTime End { get; set; }
     public int Bill { get; set; }

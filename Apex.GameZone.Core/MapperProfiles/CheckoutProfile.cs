@@ -10,5 +10,8 @@ public class CheckoutProfile : Profile
     {
         CreateMap<CheckoutModel, CheckoutEntity>();
         CreateMap<CheckoutEntity, CheckoutModel>();
+
+        CreateMap<CheckoutEntity, CheckoutEntity>();
+
     }
 }

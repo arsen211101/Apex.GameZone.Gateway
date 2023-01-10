@@ -12,7 +12,7 @@ public class CheckoutViewModel : CommonViewModel
     public DateTime? End { get; set; }
     public int Bill { get; set; }
 
-    public IEnumerable<ItemCheckoutModel> ConnectedItems { get; set; }
-    public IEnumerable<ProductCheckoutModel> ConnectedProducts { get; set; }
+    public IEnumerable<ItemCheckoutViewModel> ConnectedItems { get; set; }
+    public IEnumerable<ProductCheckoutViewModel> ConnectedProducts { get; set; }
 }
 

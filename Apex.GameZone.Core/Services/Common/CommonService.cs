@@ -87,7 +87,7 @@ internal class CommonService<TModel, TEntity> : ICommonService<TModel, TEntity>
     }
 
     public async Task Update(TModel model)
-    {
+     {
         if (model == null)
             throw BadRequest("Model to be updated was null");
 

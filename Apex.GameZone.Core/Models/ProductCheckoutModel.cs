@@ -1,8 +1,8 @@
 ﻿namespace Apex.GameZone.Core.Models;
 
-public class ProductCheckoutModel
+public class ProductCheckoutModel : BaseModel
 {
-    public CheckoutModel CheckoutModel { get; set; }
+    public int CheckoutId { get; set; }
 
-    public ProductModel ProductModel { get; set; }
+    public int ProductId { get; set; }
 }
