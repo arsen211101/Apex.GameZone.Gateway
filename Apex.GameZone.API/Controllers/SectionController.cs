@@ -51,14 +51,16 @@ public class SectionController : ControllerBase
     }
 
     [HttpDelete]
-    public async Task DedleteSection(SectionViewModel sectionViewModel)
+    public async Task<IActionResult> DedleteSection(SectionViewModel sectionViewModel)
     {
         await _sectionService.Delete(_mapper.Map<SectionModel>(sectionViewModel));
+        return Ok();
     }
 
     [HttpPut]
-    public async Task UpdateSection(SectionViewModel sectionViewModel)
+    public async Task<IActionResult> UpdateSection(SectionViewModel sectionViewModel)
     {
         await _sectionService.Update(_mapper.Map<SectionModel>(sectionViewModel));
+        return Ok();
     }
 }

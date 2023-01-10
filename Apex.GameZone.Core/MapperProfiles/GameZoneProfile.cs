@@ -10,6 +10,7 @@ public class GameZoneProfile : Profile
     {
         CreateMap<GameZoneEntity, GameZoneModel>();
         CreateMap<GameZoneModel, GameZoneEntity>();
+
         CreateMap<GameZoneEntity, GameZoneEntity>();
     }
 }

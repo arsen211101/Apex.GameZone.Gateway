@@ -94,6 +94,7 @@ internal class CommonRepository<TEntity> : ICommonRepository<TEntity> where TEnt
     private void SoftDelete(TEntity entity)
     {
         entity.IsDeleted = true;
+        _context.Entry(entity).State = EntityState.Modified;
     }
 
     private void HardDelete(TEntity entity)

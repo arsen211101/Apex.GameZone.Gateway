@@ -43,14 +43,16 @@ public class ProductController : ControllerBase
     }
 
     [HttpDelete]
-    public async Task DeleteProduct(ProductViewModel productViewModel)
+    public async Task<IActionResult> DeleteProduct(ProductViewModel productViewModel)
     {
         await _productService.Delete(_mapper.Map<ProductModel>(productViewModel));
+        return Ok();
     }
 
     [HttpPut]
-    public async Task UpdateProduct(ProductViewModel productViewModel)
+    public async Task<IActionResult> UpdateProduct(ProductViewModel productViewModel)
     {
         await _productService.Update(_mapper.Map<ProductModel>(productViewModel));
+        return Ok();
     }
 }

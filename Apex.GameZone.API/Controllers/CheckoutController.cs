@@ -47,18 +47,20 @@ public class CheckoutController : ControllerBase
     public async Task<IActionResult> AddCheck(CheckoutViewModel checkout)
     {
         var checks = await _checkoutService.Add(_mapper.Map<CheckoutModel>(checkout));
-        return Ok(_mapper.Map<List<CheckoutViewModel>>(checks));
+        return Ok(checks);
     }
 
     [HttpDelete]
-    public async Task DeleteCheck(CheckoutViewModel checkout)
+    public async Task<IActionResult> DeleteCheck(CheckoutViewModel checkout)
     {
         await _checkoutService.Delete(_mapper.Map<CheckoutModel>(checkout));
+        return Ok();
     }
 
     [HttpPut]
-    public async Task UpdateCheck(CheckoutViewModel checkout)
+    public async Task<IActionResult> UpdateCheck(CheckoutViewModel checkout)
     {
         await _checkoutService.Update(_mapper.Map<CheckoutModel>(checkout));
+        return Ok();
     }
 }

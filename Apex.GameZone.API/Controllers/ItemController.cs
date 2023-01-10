@@ -43,14 +43,16 @@ public class ItemController : ControllerBase
     }
 
     [HttpDelete]
-    public async Task DeleteItem(ItemViewModel itemViewModel)
+    public async Task<IActionResult> DeleteItem(ItemViewModel itemViewModel)
     {
         await _itemService.Delete(_mapper.Map<ItemModel>(itemViewModel));
+        return Ok();
     }
 
     [HttpPut]
-    public async Task UpdateItem(ItemViewModel itemViewModel)
+    public async Task<IActionResult> UpdateItem(ItemViewModel itemViewModel)
     {
         await _itemService.Update(_mapper.Map<ItemModel>(itemViewModel));
+        return Ok();
     }
 }
