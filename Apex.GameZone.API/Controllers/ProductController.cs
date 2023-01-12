@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Apex.GameZone.API.ViewModels.Product;
 using Apex.GameZone.Core.Models;
 using Apex.GameZone.Core.Services.GameZone;
+using Apex.GameZone.Data.Specifications.GameZoneSpecifications;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -32,6 +33,13 @@ public class ProductController : ControllerBase
     public async Task<IActionResult> GetAll()
     {
         var products = await _productService.GetAll();
+        return Ok(_mapper.Map<List<ProductViewModel>>(products));
+    }
+
+    [HttpGet("gameZoneId/{gameZoneId}")]
+    public async Task<IActionResult> GetAllByGamezoneId(int gameZoneId)
+    {
+        var products = await _productService.GetAll(new GetProductByGamezoneSpecification(gameZoneId));
         return Ok(_mapper.Map<List<ProductViewModel>>(products));
     }
 

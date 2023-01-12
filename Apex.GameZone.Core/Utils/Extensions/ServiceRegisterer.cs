@@ -19,6 +19,7 @@ public static class ServiceRegisterer
         services.AddScoped<IProductService, ProductService>();
         services.AddScoped<IItemService, ItemService>();
         services.AddScoped<ICheckoutService, CheckoutService>();
+        services.AddScoped<IProductCheckoutService,ProductCheckoutService>();
 
         #endregion
     }

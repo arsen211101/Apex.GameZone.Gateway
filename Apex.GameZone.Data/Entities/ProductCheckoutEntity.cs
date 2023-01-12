@@ -11,4 +11,6 @@ public class ProductCheckoutEntity : BaseEntity
     public int? ProductId { get; set; }
 
     [ForeignKey(nameof(ProductId))] public ProductEntity ProductEntity { get; set; }
+
+    public int Quantity { get; set; }
 }
