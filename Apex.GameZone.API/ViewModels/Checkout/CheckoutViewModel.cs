@@ -1,8 +1,8 @@
-﻿using Apex.GameZone.Core.Models;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System;
 
 namespace Apex.GameZone.API.ViewModels.Checkout;
+
 public class CheckoutViewModel : CommonViewModel
 {
     public int GameZoneId { get; set; }

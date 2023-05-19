@@ -38,7 +38,7 @@ namespace Apex.GameZone.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PricePerHour = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
+                    PricePerHour = table.Column<int>(type: "int", nullable: false),
                     GameZoneId = table.Column<int>(type: "int", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -63,8 +63,8 @@ namespace Apex.GameZone.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
-                    ActualPrice = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
+                    Price = table.Column<int>(type: "int", nullable: false),
+                    ActualPrice = table.Column<int>(type: "int", nullable: false),
                     Quantity = table.Column<int>(type: "int", nullable: false),
                     GameZoneId = table.Column<int>(type: "int", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -91,8 +91,9 @@ namespace Apex.GameZone.Data.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Type = table.Column<int>(type: "int", nullable: false),
-                    PricePerHour = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
+                    PricePerHour = table.Column<int>(type: "int", nullable: false),
                     IsVip = table.Column<bool>(type: "bit", nullable: false),
+                    IsBusy = table.Column<bool>(type: "bit", nullable: false),
                     GameZoneId = table.Column<int>(type: "int", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -133,7 +134,7 @@ namespace Apex.GameZone.Data.Migrations
                         column: x => x.GameZoneId,
                         principalTable: "GameZones",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Checkouts_Sections_SectionId",
                         column: x => x.SectionId,
@@ -152,7 +153,7 @@ namespace Apex.GameZone.Data.Migrations
                     ItemId = table.Column<int>(type: "int", nullable: true),
                     Start = table.Column<DateTime>(type: "datetime2", nullable: false),
                     End = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Bill = table.Column<decimal>(type: "decimal(18,4)", nullable: false),
+                    Bill = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)
@@ -181,6 +182,7 @@ namespace Apex.GameZone.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CheckoutId = table.Column<int>(type: "int", nullable: false),
                     ProductId = table.Column<int>(type: "int", nullable: true),
+                    Quantity = table.Column<int>(type: "int", nullable: false),
                     AddedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ModifiedDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IsDeleted = table.Column<bool>(type: "bit", nullable: false)

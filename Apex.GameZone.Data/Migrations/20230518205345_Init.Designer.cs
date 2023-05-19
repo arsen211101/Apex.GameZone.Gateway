@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Apex.GameZone.Data.Migrations
 {
     [DbContext(typeof(MainDbContext))]
-    [Migration("20221224224918_Init")]
+    [Migration("20230518205345_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -115,7 +115,7 @@ namespace Apex.GameZone.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("Bill")
-                        .HasColumnType("decimal(18,4)");
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("CheckoutId")
                         .HasColumnType("int");
@@ -170,8 +170,8 @@ namespace Apex.GameZone.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("PricePerHour")
-                        .HasColumnType("decimal(18,4)");
+                    b.Property<int>("PricePerHour")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -203,6 +203,9 @@ namespace Apex.GameZone.Data.Migrations
                     b.Property<int?>("ProductId")
                         .HasColumnType("int");
 
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CheckoutId");
@@ -220,8 +223,8 @@ namespace Apex.GameZone.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<decimal>("ActualPrice")
-                        .HasColumnType("decimal(18,4)");
+                    b.Property<int>("ActualPrice")
+                        .HasColumnType("int");
 
                     b.Property<DateTime>("AddedDate")
                         .HasColumnType("datetime2");
@@ -241,8 +244,8 @@ namespace Apex.GameZone.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18,4)");
+                    b.Property<int>("Price")
+                        .HasColumnType("int");
 
                     b.Property<int>("Quantity")
                         .HasColumnType("int");
@@ -271,6 +274,9 @@ namespace Apex.GameZone.Data.Migrations
                     b.Property<int>("GameZoneId")
                         .HasColumnType("int");
 
+                    b.Property<bool>("IsBusy")
+                        .HasColumnType("bit");
+
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
@@ -283,8 +289,8 @@ namespace Apex.GameZone.Data.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal>("PricePerHour")
-                        .HasColumnType("decimal(18,4)");
+                    b.Property<int>("PricePerHour")
+                        .HasColumnType("int");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");

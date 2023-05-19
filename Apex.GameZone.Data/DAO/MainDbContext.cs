@@ -1,4 +1,5 @@
-﻿using Apex.GameZone.Data.Entities;
+﻿using Apex.GameZone.API.ViewModels.CashRegister;
+using Apex.GameZone.Data.Entities;
 using Apex.GameZone.Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,6 +12,8 @@ public class MainDbContext : DbContext
     }
 
     public DbSet<GameZoneEntity> GameZones { get; set; }
+    public DbSet<CashoutEntity> Cashouts { get; set; }
+
     public DbSet<SectionEntity> Sections { get; set; }
     public DbSet<ItemEntity> Items { get; set; }
     public DbSet<ProductEntity> Products { get; set; }
